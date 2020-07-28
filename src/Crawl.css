@@ -1,0 +1,25 @@
+.crawl-button{
+    display: block;
+    width: 100%;
+    appearance: none;
+    border-radius: 5px;
+    background-color: #84c00c;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    height: 40px;
+    margin-top: 30px;
+}
+.crawl-button:disabled{
+    background-color: #999;
+}
+
+.crawl-button:hover{
+    background-color: #999;
+}
+
+.crawl-done{
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
