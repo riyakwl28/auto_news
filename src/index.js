@@ -86,7 +86,10 @@ export default function Crawler() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
+    if (activeStep === steps.length-1)
+      setActiveStep(0);
+    else
+      setActiveStep(activeStep + 1);
   };
 
   const handleBack = () => {
@@ -147,7 +150,7 @@ export default function Crawler() {
                     onClick={handleNext}
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Get the data' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Crawl Again' : 'Next'}
                   </Button>
                 </div>
               </React.Fragment>

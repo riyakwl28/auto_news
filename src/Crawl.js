@@ -65,16 +65,22 @@ class Crawl extends React.Component {
             Sources
           </Typography>
           <hr></hr>
+          
           {(this.state.loading) ? <LoadingSpinner message="Data is being Crawled!!" /> :<Grid container style={{alignContent:'center'}}>
+          
             <Grid item >
               <Typography variant="h8" color="inherit" noWrap >
-                  Want to Add Sources?
+                  <h5> Want to Add Sources?</h5>
                     <RadioGroup row aria-label="sourcePredict" name="sourcePredict1" value={this.state.value} onChange={this.handleChange}>
                     <FormControlLabel labelPlacement="bottom" value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel labelPlacement="bottom" value="no" control={<Radio />} label="No" />
                     </RadioGroup>
-              </Typography>
-              <div>
+                  </Typography>
+                </Grid>
+              </Grid>
+          }
+              <br/>
+              <div className="sources-form">
                   {  value==='yes'
                       ? <FormArray onSubmitForm={this.onSubmitForm}/>
                       : null
@@ -82,8 +88,10 @@ class Crawl extends React.Component {
                 
               </div>
               
-            </Grid>
-          </Grid> }
+           
+          
+         
+           
           
           <button className={`crawl-button`} onClick={this.onPressCrawl} disabled={this.state.value==="no"}>
             Crawl the data

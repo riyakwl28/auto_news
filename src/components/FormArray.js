@@ -64,9 +64,15 @@ class FormArray extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} style={{border:'2px solid black',align:'center'}}>
+      <form onSubmit={this.handleSubmit} style={{border:'2px solid black',align:'center',paddingTop:'5px'}}>
           <Typography variant="h8" color="inherit" noWrap>
-                Choose from the option below to crawl
+               <div className = "ui grid ">
+                 <div className = "four wide column"></div>
+                    <div className = "eight wide column">
+                      <h5> Choose from the option below to crawl</h5>
+                      </div>
+                      <div className = "four wide column"></div>
+                </div>
                   <RadioGroup aria-label="sourceAdd" name="sourceAdd1" value={this.state.value} onChange={this.handleChange}>
                   <FormControlLabel  value="0" control={<Radio />} label="Default Search" />
                   <FormControlLabel  value="1" control={<Radio />} label="Only Search the given sources" />
@@ -75,25 +81,32 @@ class FormArray extends React.Component {
             </Typography>
         {this.state.sources.map((source, idx) => (
           <div className="source">
-            
+          <div className= "ui input focus">
             <input
               type="text"
               placeholder={`Source Name`}
               value={source.source}
               onChange={this.handleSourceNameChange(idx)}
             />
+           </div>
+        
+            <div className="ui input focus">
             <input
               type="text"
               placeholder={`Source URL`}
               value={source.url}
               onChange={this.handleSourceUrlChange(idx)}
             />
+            </div>
+           
+            <div className="ui input focus">
             <input
               type="text"
               placeholder={`Source RSS`}
               value={source.rss}
               onChange={this.handleSourceRssChange(idx)}
             />
+            </div>
             <button
               type="button"
               onClick={this.handleRemoveSource(idx)}
