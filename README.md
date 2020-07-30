@@ -1,22 +1,24 @@
 # AutoNews: Automatic News Articles Crawler and Curator using Machine Learning
 
-To run the React Application, in the project directory, you can run:
+## Model Training
+The dataset and other files related to model training can be found in `auto_news_backend`. Python notebooks dedicated to each step of the process beginning from EDA, text preprocessing and model creation can be found in the same folder.
 
-### `npm start`
+The dataset is created from Intel India Market Intelligence Newsletters archives and has around 400 articles with 6 categories namely:iot, telecom, dc(data center), cloud, cc(client computing), ai(artificial intelligence), and industry. Around 15% of the data was used for testing.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The model uses SVM with grid search cross validation for categorizing the articles. The model achieved an accuracy of 77.89% on testing data, which can be improved once mor data is added in the corpus.<br/>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.<br/>
+## Steps to Setup the API. 
+1. Clone this repository.<br/>
 
-## React Application
-The first screen `src/Crawl.js` of application does the crawling, where the sources can be chosen between Websites' RSS or Google News. Depending upon it, the respective API call is made which is a `POST` request to **localhost:5000/crawlweb** for websites and **localhost:5000/crawlgoogle** for Google News.<br/>
+2. Go to `auto_news_backend` and install requirements using the following command
 
+#### `pip install -r requirements.txt`
 
-The second screen `src/Predict.js` does the categorisation and makes a `POST` request to **localhost:5000/predictCategory** .<br/>
+3. To run the API, in the project directory go to `auto_news_backend/api` and then run:
 
-The third screen `src/Download.js` downloads the required file by making a `POST` request to **localhost:5000/downlaod** .<br/>
+#### `python autonews_api.py`
+
+This will run the API on `localhost:5000` which can be changed in `app.run()` method.<br/>
 
 ## API Documentation
 This API uses `POST` request to communicate and . All requests must include a `content-type` of `application/json` except request to `localhost:5000/download` and the body must be valid JSON.
@@ -126,22 +128,26 @@ File is downloaded
 The default sources for Websites Crawling is stored in `auto_news_backend/sources.json` file.
 The query terms for Google Crawling is stored in `auto_news_backend/query_terms.txt` file.
 
-## Steps to Setup the API. 
-1. Clone this repository.<br/>
+## React Application
+To run the React Application, in the project directory, you can run:
 
-2. Go to `auto_news_backend` and install requirements using the following command
+### `npm start`
 
-#### `pip install -r requirements.txt`
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-3. To run the API, in the project directory go to `auto_news_backend/api` and then run:
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.<br/>
 
-#### `python autonews_api.py`
+The first screen `src/Crawl.js` of application does the crawling, where the sources can be chosen between Websites' RSS or Google News. Depending upon it, the respective API call is made which is a `POST` request to **localhost:5000/crawlweb** for websites and **localhost:5000/crawlgoogle** for Google News.<br/>
 
-This will run the API on `localhost:5000` which can be changed in `app.run()` method.<br/>
 
-## Model Training
-The dataset and other files related to model training can be found in `auto_news_backend`. Python notebooks dedicated to each step of the process beginning from EDA, text preprocessing and model creation can be found in the same folder.
+The second screen `src/Predict.js` does the categorisation and makes a `POST` request to **localhost:5000/predictCategory** .<br/>
 
-The dataset is created from Intel India Market Intelligence Newsletters archives and has around 400 articles with 6 categories namely:iot, telecom, dc(data center), cloud, cc(client computing), ai(artificial intelligence), and industry. Around 15% of the data was used for testing.
+The third screen `src/Download.js` downloads the required file by making a `POST` request to **localhost:5000/downlaod** .<br/>
 
-The model uses SVM with grid search cross validation for categorizing the articles. The model achieved an accuracy of 77.89% on testing data, which can be improved once mor data is added in the corpus.
+
+
+
+
+
