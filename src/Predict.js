@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -26,7 +25,7 @@ class Predict extends React.Component {
 
   onPressPredict= async()=>{
     this.setState({loading:true})
-    console.log(this.state);
+    console.log(JSON.stringify({"confidence":this.state.confidence,"value":this.state.value}));
     try {
       const response=await axios({
         method: 'post',
@@ -34,11 +33,11 @@ class Predict extends React.Component {
           'Content-Type': 'application/json'
         },
         url: 'http://127.0.0.1:5000/predictCategory',
-        data: JSON.stringify({confidence:this.state.confidence,value:this.state.value})
+        data: JSON.stringify({"confidence":this.state.confidence,"value":this.state.value})
       })
       .then(result => this.setState({
         loading: false,
-        message: "Crawling Done",
+        message: "Predicting Done",
       }));
       console.log(response);
     } catch (e) {
