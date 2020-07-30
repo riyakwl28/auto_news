@@ -20,6 +20,111 @@ The third screen `src/Download.js` downloads the required file by making a `POST
 ## API Documentation
 This API uses `POST` request to communicate and . All requests must include a `content-type` of `application/json` except request to `localhost:5000/download` and the body must be valid JSON.
 
+## Crawl using Websites' RSS
+**You send:**  Any additional sources(it's name, it's website's URL and it's RSS feed URL along with a flag("0","1" or "2") which determines whether you want to search default sources or the new one only).
+**You get:** A JSON response.
+
+**Example Request:**
+```json
+POST request to /crawlweb 
+Accept: application/json
+Content-Type: application/json
+{
+    "sources": ["source":"cio_etc_dc","url":"https://cio.economictimes.indiatimes.com/","rss":"https://cio.economictimes.indiatimes.com/rss/data-center"],
+    "add": "0" 
+}
+```
+**Successful Response:**
+```json
+{
+   "StatusMessage":"Crawling Done"
+}
+```
+**Failed Response:**
+```json
+{
+   "StatusMessage":"Error Occured"
+}
+```
+## Crawl using Google News
+**You send:**  The date range within which news is needed
+**You get:** A JSON response.
+
+**Example Request:**
+```json
+POST request to /crawlgoogle 
+Accept: application/json
+Content-Type: application/json
+{
+    "startDate": "2020-07-28",
+    "endDate": "2020-07-31" 
+}
+```
+**Successful Response:**
+```json
+{
+   "StatusMessage":"Crawling Done"
+}
+```
+**Failed Response:**
+```json
+{
+   "StatusMessage":"Error Occured"
+}
+```
+
+## Predict
+**You send:**  A flag("google" or "other") which selects which crawled articles to predict whether from Google or from Websites' RSS and a confidence score which determines the threshold of probability of predcition below which the articles will be eliminated.
+**You get:** A JSON response.
+
+**Example Request:**
+```json
+POST request to /predictCategory
+Accept: application/json
+Content-Type: application/json
+{
+    "value":"google",
+    "confidence": "40.0" 
+}
+```
+**Successful Response:**
+```json
+{
+   "StatusMessage":"Predicting Done"
+}
+```
+**Failed Response:**
+```json
+{
+   "StatusMessage":"Error Occured"
+}
+```
+
+## Download
+**You send:**  A flag("other" or "google") whether to download google predcited articles or websites' articles
+**You get:** A JSON response.
+
+**Example Request:**
+```json
+POST request to /predictCategory
+Accept: application/json
+Content-Type: application/json
+{
+    "value":"google"
+}
+```
+**Successful Response:**
+File is downloaded
+
+**Failed Response:**
+```json
+{
+   "StatusMessage":"Error Occured"
+}
+```
+<br/>
+The default sources for Websites Crawling is stored in `auto_news_backend/sources.json` file.
+The query terms for Google Crawling is stored in `auto_news_backend/query_terms.txt` file.
 
 ## Steps to Setup the API. 
 1. Clone this repository.<br/>
@@ -34,3 +139,5 @@ This API uses `POST` request to communicate and . All requests must include a `c
 
 This will run the API on localhost:5000 which can be changed in app.run() method.<br/>
 
+## Model Training
+The dataset and other files related to model training can be found in `auto_news_backend`. Python notebooks dedicated to each step of the process beginning from EDA, text preprocessing and model creation can be found in the same folder.
