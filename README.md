@@ -21,7 +21,7 @@ The third screen `src/Download.js` downloads the required file by making a `POST
 ## API Documentation
 This API uses `POST` request to communicate and . All requests must include a `content-type` of `application/json` except request to `localhost:5000/download` and the body must be valid JSON.
 
-# Crawl using Websites' RSS
+### Crawl using Websites' RSS
 **You send:**  Any additional sources(it's name, it's website's URL and it's RSS feed URL along with a flag("0","1" or "2") which determines whether you want to search default sources or the new one only).
 **You get:** A JSON response.
 
@@ -47,7 +47,7 @@ Content-Type: application/json
    "StatusMessage":"Error Occured"
 }
 ```
-# Crawl using Google News
+### Crawl using Google News
 **You send:**  The date range within which news is needed
 **You get:** A JSON response.
 
@@ -74,7 +74,7 @@ Content-Type: application/json
 }
 ```
 
-# Predict
+### Predict
 **You send:**  A flag("google" or "other") which selects which crawled articles to predict whether from Google or from Websites' RSS and a confidence score which determines the threshold of probability of predcition below which the articles will be eliminated.
 **You get:** A JSON response.
 
@@ -101,7 +101,7 @@ Content-Type: application/json
 }
 ```
 
-# Download
+### Download
 **You send:**  A flag("other" or "google") whether to download google predcited articles or websites' articles
 **You get:** A JSON response.
 
