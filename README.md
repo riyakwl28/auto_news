@@ -108,8 +108,7 @@ Content-Type: application/json
 **Example Request:**
 ```json
 POST request to /predictCategory
-Accept: application/json
-Content-Type: application/json
+response-type: "blob"
 {
     "value":"google"
 }
