@@ -141,3 +141,7 @@ This will run the API on `localhost:5000` which can be changed in `app.run()` me
 
 ## Model Training
 The dataset and other files related to model training can be found in `auto_news_backend`. Python notebooks dedicated to each step of the process beginning from EDA, text preprocessing and model creation can be found in the same folder.
+
+The dataset is created from Intel India Market Intelligence Newsletters archives and has around 400 articles with 6 categories namely:iot, telecom, dc(data center), cloud, cc(client computing), ai(artificial intelligence), and industry. Around 15% of the data was used for testing.
+
+The model uses SVM with grid search cross validation for categorizing the articles. The model achieved an accuracy of 77.89% on testing data, which can be improved once mor data is added in the corpus.
