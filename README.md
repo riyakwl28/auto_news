@@ -125,8 +125,8 @@ File is downloaded
 }
 ```
 <br/>
-The default sources for Websites Crawling is stored in `auto_news_backend/sources.json` file.
-The query terms for Google Crawling is stored in `auto_news_backend/query_terms.txt` file.
+The default sources for Websites Crawling is stored in `auto_news_backend/sources` file.
+The query terms for Google Crawling is stored in `auto_news_backend/query_terms` file.
 
 ## React Application
 To run the React Application, in the project directory, you can run:
