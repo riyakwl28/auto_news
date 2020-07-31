@@ -109,14 +109,14 @@ Content-Type: application/json
 
 **Example Request:**
 ```json
-POST request to /predictCategory
+POST request to /download
 response-type: "blob"
 {
     "value":"google"
 }
 ```
-**Successful Response:**
-File is downloaded
+**Successful Response:** <br/>
+File will be downloaded
 
 **Failed Response:**
 ```json
@@ -125,8 +125,8 @@ File is downloaded
 }
 ```
 <br/>
-The default sources for Websites Crawling is stored in `auto_news_backend/sources` file.
-The query terms for Google Crawling is stored in `auto_news_backend/query_terms` file.
+The default sources for Websites Crawling is stored in `auto_news_backend/sources.json` file.
+The query terms for Google Crawling is stored in `auto_news_backend/query_terms.txt` file.
 
 ## React Application
 To run the React Application, in the project directory, you can run:
