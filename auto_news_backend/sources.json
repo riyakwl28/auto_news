@@ -1,0 +1,37 @@
+{
+    "thenextweb":
+    {
+        "link":"https://thenextweb.com/in/",
+        "rss":"https://thenextweb.com/feed/"
+    },
+    "ettechmobile":
+    {
+        "link":"https://tech.economictimes.indiatimes.com/",
+        "rss":"https://tech.economictimes.indiatimes.com/rss/mobile"
+    },
+    "ettechtech":
+    {
+        "link":"https://tech.economictimes.indiatimes.com/",
+        "rss":"https://tech.economictimes.indiatimes.com/rss/technology"
+    },
+    "cio_etc_cc":
+    {
+        "link":"https://cio.economictimes.indiatimes.com/",
+        "rss":"https://cio.economictimes.indiatimes.com/rss/next-gen-technologies"
+    },
+    "cio_etc_dc":
+    {
+        "link":"https://cio.economictimes.indiatimes.com/",
+        "rss":"https://cio.economictimes.indiatimes.com/rss/data-center"
+    },
+    "cio_etc_iot":
+    {
+        "link":"https://cio.economictimes.indiatimes.com/",
+        "rss":"https://cio.economictimes.indiatimes.com/rss/internet-of-things"
+    },
+    "cio_etc_telecom":
+    {
+        "link":"https://telecom.economictimes.indiatimes.com/",
+        "rss":"https://telecom.economictimes.indiatimes.com/rss/topstories"
+    }
+}
